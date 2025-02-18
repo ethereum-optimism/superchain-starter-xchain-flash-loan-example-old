@@ -2,16 +2,11 @@
 pragma solidity ^0.8.25;
 
 import {SuperchainERC20} from "./SuperchainERC20.sol";
-import {Ownable} from "@solady/auth/Ownable.sol";
 
-contract CrosschainFlashLoanToken is SuperchainERC20, Ownable {
+contract CrosschainFlashLoanToken is SuperchainERC20 {
     string private constant _name = "XChainFlashLoan";
     string private constant _symbol = "CXL";
     uint8 private constant _decimals = 18;
-
-    constructor(address owner_) {
-        _initializeOwner(owner_);
-    }
 
     function name() public pure override returns (string memory) {
         return _name;
@@ -25,11 +20,7 @@ contract CrosschainFlashLoanToken is SuperchainERC20, Ownable {
         return _decimals;
     }
 
-    function mint(address to_, uint256 amount_) external onlyOwner {
+    function mint(address to_, uint256 amount_) external {
         _mint(to_, amount_);
-    }
-
-    function burn(address from_, uint256 amount_) external onlyOwner {
-        _burn(from_, amount_);
     }
 }

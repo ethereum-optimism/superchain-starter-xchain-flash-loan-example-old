@@ -50,6 +50,7 @@ contract CrosschainFlashLoanBridge {
     function initiateCrosschainFlashLoan(uint256 destinationChain, uint256 amount, address target, bytes calldata data)
         external
         payable
+        returns (bytes32)
     {
         // Check that sufficient fee was paid
         if (msg.value < flatFee) revert InsufficientFee();
@@ -57,7 +58,7 @@ contract CrosschainFlashLoanBridge {
         // Send tokens to destination chain
         bytes32 sendERC20MsgHash = bridge.sendERC20(address(token), address(this), amount, destinationChain);
 
-        messenger.sendMessage(
+        return messenger.sendMessage(
             destinationChain,
             address(this),
             abi.encodeWithSelector(
