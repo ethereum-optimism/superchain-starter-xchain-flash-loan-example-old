@@ -2,7 +2,8 @@
 
 > Generated from [superchain-starter](https://github.com/ethereum-optimism/superchain-starter). See the original repository for a more detailed development guide.
 
-Example Superchain app (contract + frontend) that uses interop to send ETH to multiple recipients on a different chain.
+Example Superchain app (contract + frontend) that uses interop to flash loan ERC20s between chains.
+![Screenshot 2025-02-18 at 3 38 51 PM](https://github.com/user-attachments/assets/1a4a743c-bc9a-4462-82dc-2273d5c8249e)
 
 ## 🔗 Contracts
 
